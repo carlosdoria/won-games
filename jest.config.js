@@ -6,11 +6,17 @@ module.exports = {
   ],
   collectCoverage: true,
   collectCoverageFrom: [
-    "src/**/*.ts(x)?",
-    "!src/**/_app.tsx",
-    "!src/**/_document.tsx",
+    'src/**/*.ts(x)?',
     '!src/**/stories.tsx',
+    '!src/pages/**/*.tsx',
+    '!src/styles/**/*.ts',
+    '!src/utils/apollo.ts',
+    '!src/utils/apolloCache.ts',
+    '!src/types/**/*.d.ts',
+    '!src/graphql/**/*.ts',
+    '!src/**/mock.ts'
   ],
+  modulePaths: ['<rootDir>/src/', '<rootDir>/.jest'],
   // transform: {
   //   "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
   // },
