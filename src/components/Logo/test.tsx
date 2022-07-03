@@ -13,7 +13,7 @@ describe('<Logo />', () => {
     })
   });
 
-  it('should render a black label when color is passed', () => {
+  it('should render a black label when  is passed', () => {
     renderWithTheme(<Logo color='black' />)
 
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
