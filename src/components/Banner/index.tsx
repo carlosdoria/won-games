@@ -1,5 +1,6 @@
-import { Button } from 'components/Button';
-import * as S from './styles';
+import { Button } from 'components/Button'
+import { Ribbon, RibbonColors, RibbonSizes } from 'components/Ribbon'
+import * as S from './styles'
 
 export type BannerProps = {
   img: string
@@ -7,6 +8,9 @@ export type BannerProps = {
   subtitle: string
   buttonLabel: string
   buttonLink: string
+  ribbon?: React.ReactNode
+  ribbonSize?: RibbonSizes
+  ribbonColor?: RibbonColors
 }
 
 export const Banner = ({
@@ -14,19 +18,28 @@ export const Banner = ({
   title,
   subtitle,
   buttonLabel,
-  buttonLink
+  buttonLink,
+  ribbon,
+  ribbonSize = 'normal',
+  ribbonColor = 'primary'
 }: BannerProps) => {
   return (
     <S.Wrapper>
-      <S.Image src={img} role="img" aria-label={title} />
+      {!!ribbon && (
+        <Ribbon size={ribbonSize} color={ribbonColor}>
+          {ribbon}
+        </Ribbon>
+      )}
+
+      <S.Image src={img} role='img' aria-label={title} />
 
       <S.Caption>
         <S.Title>{title}</S.Title>
         <S.Subtitle dangerouslySetInnerHTML={{ __html: subtitle }} />
-        <Button as="a" href={buttonLink} size="large">
+        <Button as='a' href={buttonLink} size='large'>
           {buttonLabel}
         </Button>
       </S.Caption>
     </S.Wrapper>
-  );
-};
+  )
+}
